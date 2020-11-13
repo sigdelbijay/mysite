@@ -9,7 +9,7 @@
       </div>
       <div class="col-md-6">
         <?php the_excerpt(); ?>
-      </div>
+      </div>  
     </div>
     <?php } else { ?>
     <?php the_excerpt(); ?>

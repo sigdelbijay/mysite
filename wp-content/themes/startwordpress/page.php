@@ -3,13 +3,18 @@
 	<div class="row">
 		<div class="col-sm-12">
 
-			<?php
-                if ( have_posts() ) : while ( have_posts() ) : the_post();
+		<?php
+			$args = array(
+				'post_type' => 'your_post',
+			);
+			$your_loop = new WP_Query( $args );
 
-                    get_template_part( 'content', get_post_format() );
+			if ( $your_loop->have_posts() ) : while ( $your_loop->have_posts() ) : $your_loop->the_post();
+			$meta = get_post_meta( $post->ID, 'your_fields', true ); ?>
 
-                endwhile; endif;
-			?>
+			<!-- contents of Your Post -->
+
+			<?php endwhile; endif; wp_reset_postdata(); ?>
 
 		</div> <!-- /.col -->
 	</div> <!-- /.row -->
